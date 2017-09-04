@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MainTabHeadView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今日知识" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WKN-ak-on3">
+                    <rect key="frame" x="10" y="10" width="150" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="Ew3-DP-0IP"/>
+                        <constraint firstAttribute="height" constant="25" id="u6P-8f-SxP"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="每天告诉你宝宝的成长过程和注意事项" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PgC-HY-ciz">
+                    <rect key="frame" x="10" y="40" width="355" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="XDh-pZ-AvS"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/7" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W3o-Pd-m0t">
+                    <rect key="frame" x="341.5" y="15" width="13.5" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" priority="5" constant="30" id="7u9-3T-pmF"/>
+                        <constraint firstAttribute="height" constant="20" id="yNj-2B-axu"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wNu-MM-pSH">
+                    <rect key="frame" x="321.5" y="15" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="1ga-mb-def"/>
+                        <constraint firstAttribute="width" constant="20" id="ocv-0Z-SGA"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="W3o-Pd-m0t" firstAttribute="leading" secondItem="wNu-MM-pSH" secondAttribute="trailing" id="6Gm-yW-uk4"/>
+                <constraint firstItem="PgC-HY-ciz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="KSh-5m-Wof"/>
+                <constraint firstItem="PgC-HY-ciz" firstAttribute="top" secondItem="WKN-ak-on3" secondAttribute="bottom" constant="5" id="KZg-sa-UJr"/>
+                <constraint firstAttribute="trailing" secondItem="PgC-HY-ciz" secondAttribute="trailing" constant="10" id="SKk-GF-zAa"/>
+                <constraint firstItem="WKN-ak-on3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="Soh-UX-IpO"/>
+                <constraint firstItem="WKN-ak-on3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="ZvC-aZ-aeS"/>
+                <constraint firstAttribute="trailing" secondItem="W3o-Pd-m0t" secondAttribute="trailing" constant="20" id="geH-rA-Vra"/>
+                <constraint firstItem="wNu-MM-pSH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="kCB-hh-UbF"/>
+                <constraint firstItem="W3o-Pd-m0t" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="vAl-Zf-Ct4"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="allPageLabel" destination="W3o-Pd-m0t" id="6n2-Y8-l64"/>
+                <outlet property="pageLabel" destination="wNu-MM-pSH" id="pzz-Bm-uZS"/>
+                <outlet property="secondLabel" destination="PgC-HY-ciz" id="bVf-LO-MI6"/>
+                <outlet property="titlelabel" destination="WKN-ak-on3" id="xP7-d8-1OY"/>
+            </connections>
+            <point key="canvasLocation" x="-49" y="33"/>
+        </view>
+    </objects>
+</document>
