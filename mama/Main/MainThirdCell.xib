@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="299.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BXG-pY-Lyq">
@@ -85,7 +85,7 @@
                             <constraint firstAttribute="trailing" secondItem="VZA-FP-Wzb" secondAttribute="trailing" id="hbw-Fg-w30"/>
                         </constraints>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p7T-Y0-Dwu">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="意见反馈背景.png" translatesAutoresizingMaskIntoConstraints="NO" id="p7T-Y0-Dwu">
                         <rect key="frame" x="20" y="8" width="280" height="190"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="190" id="m72-1n-NyH"/>
@@ -108,4 +108,7 @@
             </connections>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="意见反馈背景.png" width="315" height="180"/>
+    </resources>
 </document>

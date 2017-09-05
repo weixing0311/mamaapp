@@ -45,6 +45,9 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kda-b4-g1g">
                         <rect key="frame" x="75" y="118" width="170" height="170"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="头像框.png" translatesAutoresizingMaskIntoConstraints="NO" id="Fgi-w5-SQf">
+                                <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fy7-SA-zxv">
                                 <rect key="frame" x="10" y="10" width="150" height="150"/>
                                 <userDefinedRuntimeAttributes>
@@ -54,11 +57,10 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="htU-Gv-8Tv">
-                                <rect key="frame" x="114" y="119" width="36" height="31"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="htU-Gv-8Tv">
+                                <rect key="frame" x="110" y="113" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="+">
+                                <state key="normal" image="添加头像.png">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -68,10 +70,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Fgi-w5-SQf" secondAttribute="trailing" id="GCD-Z9-HFq"/>
                             <constraint firstAttribute="width" constant="170" id="GSl-qP-IBz"/>
+                            <constraint firstAttribute="bottom" secondItem="Fgi-w5-SQf" secondAttribute="bottom" id="JEQ-8f-XmR"/>
                             <constraint firstItem="Fy7-SA-zxv" firstAttribute="leading" secondItem="kda-b4-g1g" secondAttribute="leading" constant="10" id="MJM-XL-Zxe"/>
                             <constraint firstAttribute="trailing" secondItem="Fy7-SA-zxv" secondAttribute="trailing" constant="10" id="ZXj-Px-N8Q"/>
+                            <constraint firstItem="Fgi-w5-SQf" firstAttribute="top" secondItem="kda-b4-g1g" secondAttribute="top" id="hZ4-FD-tsc"/>
                             <constraint firstAttribute="height" constant="170" id="hb7-g2-hN3"/>
+                            <constraint firstItem="Fgi-w5-SQf" firstAttribute="leading" secondItem="kda-b4-g1g" secondAttribute="leading" id="i1r-Yg-k2Q"/>
                             <constraint firstAttribute="bottom" secondItem="Fy7-SA-zxv" secondAttribute="bottom" constant="10" id="jVr-78-dXp"/>
                             <constraint firstItem="Fy7-SA-zxv" firstAttribute="top" secondItem="kda-b4-g1g" secondAttribute="top" constant="10" id="kAZ-fH-RlI"/>
                         </constraints>
@@ -155,14 +161,14 @@
                                                     <constraint firstAttribute="height" constant="1" id="eTg-bW-Ezs"/>
                                                 </constraints>
                                             </view>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cvw-NM-IFS">
-                                                <rect key="frame" x="0.0" y="10" width="10" height="10"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="位置.png" translatesAutoresizingMaskIntoConstraints="NO" id="cvw-NM-IFS">
+                                                <rect key="frame" x="0.0" y="10" width="12" height="15"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="cvw-NM-IFS" secondAttribute="height" multiplier="1:1" id="xW6-3w-JiV"/>
+                                                    <constraint firstAttribute="width" secondItem="cvw-NM-IFS" secondAttribute="height" multiplier="13:16" id="xW6-3w-JiV"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="北京" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mhz-WB-Ffi">
-                                                <rect key="frame" x="10" y="1" width="41.5" height="29"/>
+                                                <rect key="frame" x="12" y="1" width="39.5" height="29"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" priority="20" constant="50" id="Quc-pd-buo"/>
                                                 </constraints>
@@ -183,7 +189,7 @@
                                             <constraint firstItem="M1x-07-JzY" firstAttribute="leading" secondItem="YcF-Gp-c6q" secondAttribute="leading" id="FZg-K0-BXj"/>
                                             <constraint firstItem="cvw-NM-IFS" firstAttribute="leading" secondItem="YcF-Gp-c6q" secondAttribute="leading" id="Gls-oB-x8L"/>
                                             <constraint firstAttribute="bottom" secondItem="LDX-2A-s7w" secondAttribute="bottom" id="TJH-IL-o24"/>
-                                            <constraint firstAttribute="bottom" secondItem="cvw-NM-IFS" secondAttribute="bottom" constant="10" id="TPM-HR-Vq1"/>
+                                            <constraint firstAttribute="bottom" secondItem="cvw-NM-IFS" secondAttribute="bottom" constant="5" id="TPM-HR-Vq1"/>
                                             <constraint firstAttribute="trailing" secondItem="LDX-2A-s7w" secondAttribute="trailing" id="b28-iQ-OAt"/>
                                             <constraint firstAttribute="bottom" secondItem="Mhz-WB-Ffi" secondAttribute="bottom" id="hM3-Kz-tdM"/>
                                             <constraint firstItem="cvw-NM-IFS" firstAttribute="top" secondItem="YcF-Gp-c6q" secondAttribute="top" constant="10" id="kZc-8L-Tqf"/>
@@ -258,4 +264,9 @@
             </connections>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="位置.png" width="13" height="16"/>
+        <image name="头像框.png" width="172" height="172"/>
+        <image name="添加头像.png" width="44" height="44"/>
+    </resources>
 </document>
