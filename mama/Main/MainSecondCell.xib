@@ -19,10 +19,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LNW-ac-SYP">
-                        <rect key="frame" x="30" y="30" width="335" height="239.5"/>
+                        <rect key="frame" x="30" y="30" width="345" height="239.5"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TPT-U7-3Bc">
-                                <rect key="frame" x="0.0" y="170" width="335" height="60"/>
+                                <rect key="frame" x="0.0" y="170" width="345" height="60"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ew-2e-9As">
                                         <rect key="frame" x="0.0" y="10" width="3" height="40"/>
@@ -42,7 +42,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="健康辅食妈妈再也不用愁啦~！轻松就能搞定！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDT-D9-sIe">
-                                        <rect key="frame" x="23" y="40" width="292" height="20"/>
+                                        <rect key="frame" x="23" y="40" width="302" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="lrg-Bb-ULQ"/>
                                         </constraints>
@@ -84,24 +84,30 @@
                             <constraint firstItem="TPT-U7-3Bc" firstAttribute="leading" secondItem="LNW-ac-SYP" secondAttribute="leading" id="u2X-ZY-hKl"/>
                         </constraints>
                     </view>
-                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7JX-Gc-vMJ">
-                        <rect key="frame" x="0.0" y="10" width="375" height="190"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BuP-ps-Qs7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="179"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="190" id="2sk-oY-7bG"/>
+                            <constraint firstAttribute="height" constant="179" id="Vbo-Fy-Q9l"/>
                         </constraints>
-                    </scrollView>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="7JX-Gc-vMJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="9GC-cx-7ZC"/>
-                    <constraint firstAttribute="trailing" secondItem="7JX-Gc-vMJ" secondAttribute="trailing" id="9ef-1X-8Ab"/>
-                    <constraint firstAttribute="trailing" secondItem="LNW-ac-SYP" secondAttribute="trailing" constant="10" id="Ddd-CI-TLm"/>
+                    <constraint firstAttribute="trailing" secondItem="BuP-ps-Qs7" secondAttribute="trailing" id="4uj-Kg-wgY"/>
+                    <constraint firstAttribute="trailing" secondItem="LNW-ac-SYP" secondAttribute="trailing" id="Ddd-CI-TLm"/>
                     <constraint firstItem="LNW-ac-SYP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="30" id="G2U-VH-uN6"/>
-                    <constraint firstItem="7JX-Gc-vMJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="PuL-1C-w7Q"/>
+                    <constraint firstItem="BuP-ps-Qs7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="jWe-gd-xWR"/>
                     <constraint firstItem="LNW-ac-SYP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="nb7-UF-erf"/>
+                    <constraint firstItem="BuP-ps-Qs7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="rac-jZ-Zsc"/>
                     <constraint firstAttribute="bottom" secondItem="LNW-ac-SYP" secondAttribute="bottom" id="th4-Qv-U6c"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+            <connections>
+                <outlet property="contentlb" destination="eDT-D9-sIe" id="8Sg-z6-lqA"/>
+                <outlet property="imageBGView" destination="BuP-ps-Qs7" id="qfb-L5-iES"/>
+                <outlet property="title2lb" destination="9Qd-6f-5UY" id="W7i-IA-RGx"/>
+                <outlet property="titleLabel" destination="hTx-12-ART" id="7ZC-Sl-czj"/>
+            </connections>
             <point key="canvasLocation" x="33.5" y="54"/>
         </tableViewCell>
     </objects>

@@ -10,6 +10,7 @@
 
 @interface CallBackViewController ()
 @property (weak, nonatomic) IBOutlet UIView *textView;
+@property (weak, nonatomic) IBOutlet UIView *cardView;
 
 @end
 
@@ -18,7 +19,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-
+    self.title = @"意见反馈";
+    [self.cardView setShardow];
     self.textView.layer.borderWidth= 2;
     self.textView.layer.borderColor = [UIColor grayColor].CGColor;
 

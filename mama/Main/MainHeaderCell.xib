@@ -48,7 +48,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="头像框.png" translatesAutoresizingMaskIntoConstraints="NO" id="Fgi-w5-SQf">
                                 <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fy7-SA-zxv">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="默认头像.png" translatesAutoresizingMaskIntoConstraints="NO" id="Fy7-SA-zxv">
                                 <rect key="frame" x="10" y="10" width="150" height="150"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -268,5 +268,6 @@
         <image name="位置.png" width="13" height="16"/>
         <image name="头像框.png" width="172" height="172"/>
         <image name="添加头像.png" width="44" height="44"/>
+        <image name="默认头像.png" width="110" height="110"/>
     </resources>
 </document>

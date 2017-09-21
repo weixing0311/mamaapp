@@ -43,6 +43,7 @@
     if (!cell ) {
         cell = [[UserModel shareInstance]getXibCellWithTitle:identifier];
     }
+    [cell.cardView setShardow];
     return cell;
 }
 - (void)didReceiveMemoryWarning {

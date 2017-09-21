@@ -10,6 +10,7 @@
 #import "CallBackViewController.h"
 #import "AbouUsViewController.h"
 #import "MyInfoViewController.h"
+#import "YYKnowledgeViewController.h"
 @interface MineViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *headImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nickName;
@@ -31,6 +32,8 @@
     [self.navigationController pushViewController:my animated:YES];
 }
 - (IBAction)pregnantWomanInfo:(id)sender {
+    YYKnowledgeViewController * yyk = [[YYKnowledgeViewController alloc]init];
+    [self.navigationController pushViewController:yyk animated:YES];
 }
 - (IBAction)aboutUs:(id)sender {
     AbouUsViewController * ab = [[AbouUsViewController alloc]init];

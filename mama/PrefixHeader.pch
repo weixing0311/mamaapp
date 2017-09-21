@@ -12,13 +12,38 @@
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 #import "AFNetworking.h"
+#import "SVProgressHUD.h"
+
+#import "UserModel.h"
+#import "BaseSerVice.h"
+
+#pragma  mark ---category---------
+
 #import "UIImageView+WebCache.h"
 #import "UIButton+WebCache.h"
-#import "UserModel.h"
+#import "UIView+LayerCustom.h"
+#import "NSArray+Extension.h"
+#import "NSDictionary+Extension.h"
+#import "NSDate+Utilities.h"
+#import "NSDictionary+JFASafeObject.m"
+#import "NSMutableDictionary+JFASafeObject.h"
+#import "NSString+JFAExtend.h"
+#import "NSString+TimeLabel.h"
+#import "NSString+Password.h"
+#import "UIColor+JFAExtend.h"
+#import "UIImage+Extension.h"
+#import "UIImage+LocalImage.h"
+#import "UIImage+scal.h"
+#import "UIImageView+Round.h"
+#import "UIView+Board.h"
+#import "UIView+JFAViewAnimation.h"
+#import "NSDate+CustomDate.h"
+#import "NSString+dateWithString.h"
 
 
-
-
+//domain
+//正式
+#define kMyBaseUrl @"https://mall.fitgeneral.com/"
 
 
 ////hex 颜色
@@ -44,6 +69,20 @@
 
 #define AI_MAIN_BLUECOLOR [UIColor colorWithRed:0x3d / 255.0f green:0xb9 / 255.0f blue:0xec / 255.0f alpha:1]
 #define AI_MAIN_DARK_BLUECOLOR [UIColor colorWithRed:0x00 / 255.0f green:0x66 / 255.0f blue:0x99 / 255.0f alpha:1]
+
+
+
+
+#define NLSystemVersionGreaterOrEqualThan(version) ([[[UIDevice currentDevice] systemVersion] floatValue] >= version)
+
+#define IOS7_OR_LATER NLSystemVersionGreaterOrEqualThan(7.0)
+
+#define IOS8_OR_LATER NLSystemVersionGreaterOrEqualThan(8.0)
+
+#define IOS81_OR_LATER NLSystemVersionGreaterOrEqualThan(8.1)
+#define IOS9_OR_LATER NLSystemVersionGreaterOrEqualThan(9.0)
+#define NLSystemVersionLowerOrEqualThan(version) ([[[UIDevice currentDevice] systemVersion] floatValue] < version)
+#define IOS6_EARLY NLSystemVersionLowerOrEqualThan(6.0)
 
 
 #endif /* PrefixHeader_pch */

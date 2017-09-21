@@ -37,5 +37,27 @@ static UserModel *model;
         return nil;
     }
 }
+-(void)showSuccessWithStatus:(NSString *)status
+{
+    [SVProgressHUD setMaximumDismissTimeInterval:1];
+    [SVProgressHUD setMinimumDismissTimeInterval:1];
+    [SVProgressHUD showSuccessWithStatus:status];
+}
+-(void)showErrorWithStatus:(NSString *)status
+{
+    [SVProgressHUD setMaximumDismissTimeInterval:1];
+    [SVProgressHUD setMinimumDismissTimeInterval:1];
+    [SVProgressHUD showErrorWithStatus:status];
+}
+-(void)showInfoWithStatus:(NSString *)status
+{
+    [SVProgressHUD setMaximumDismissTimeInterval:1];
+    [SVProgressHUD setMinimumDismissTimeInterval:1];
+    [SVProgressHUD showInfoWithStatus:status];
+}
+-(void)dismiss
+{
+    [SVProgressHUD dismiss];
+}
 
 @end

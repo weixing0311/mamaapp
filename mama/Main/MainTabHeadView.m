@@ -17,5 +17,17 @@
     // Drawing code
 }
 */
-
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(didChange:) name:@"changeMainSecondCellPage" object:nil];
+    // Initialization code
+}
+-(void)didChange:(NSNotification *)noti
+{
+    if (self.tag ==1) {
+        NSString * pageStr =[NSString stringWithFormat :@"%@",[noti.userInfo safeObjectForKey:@"count"]];
+        self.pageLabel.text = pageStr;
+  
+    }
+}
 @end

@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoignViewController">
             <connections>
+                <outlet property="cardView" destination="PB0-ac-NiT" id="kxV-eA-CsD"/>
                 <outlet property="mobileTf" destination="VEW-VB-8bT" id="DJ9-rw-FBc"/>
                 <outlet property="verBtn" destination="hs1-8d-uk1" id="oBv-sy-2OH"/>
                 <outlet property="verTf" destination="Qbo-iY-eYU" id="Nhs-Zv-B1X"/>

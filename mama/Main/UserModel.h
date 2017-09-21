@@ -12,5 +12,9 @@
 +(UserModel *)shareInstance;
 
 -(id)getXibCellWithTitle:(NSString *)title;
+-(void)showSuccessWithStatus:(NSString *)status;
+-(void)showErrorWithStatus:(NSString *)status;
+-(void)showInfoWithStatus:(NSString *)status;
+-(void)dismiss;
 
 @end

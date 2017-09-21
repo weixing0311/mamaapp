@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GuideChooseViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8aO-Ju-o7F">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="333.5"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="choose1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Xbc-jo-FVd">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="333.5"/>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yKO-lh-Ic3">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="333.5"/>
+                            <state key="normal" image="choose1text.png"/>
+                            <connections>
+                                <action selector="choose1:" destination="-1" eventType="touchUpInside" id="C69-8e-ied"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="Xbc-jo-FVd" firstAttribute="top" secondItem="8aO-Ju-o7F" secondAttribute="top" id="580-Rz-tLY"/>
+                        <constraint firstItem="yKO-lh-Ic3" firstAttribute="top" secondItem="8aO-Ju-o7F" secondAttribute="top" id="5gf-Zl-cNb"/>
+                        <constraint firstItem="Xbc-jo-FVd" firstAttribute="leading" secondItem="8aO-Ju-o7F" secondAttribute="leading" id="7Ri-TL-IZh"/>
+                        <constraint firstItem="yKO-lh-Ic3" firstAttribute="leading" secondItem="8aO-Ju-o7F" secondAttribute="leading" id="9iB-4j-c4Q"/>
+                        <constraint firstAttribute="trailing" secondItem="yKO-lh-Ic3" secondAttribute="trailing" id="eYy-Lo-cOc"/>
+                        <constraint firstAttribute="bottom" secondItem="Xbc-jo-FVd" secondAttribute="bottom" id="gEO-mP-giK"/>
+                        <constraint firstAttribute="trailing" secondItem="Xbc-jo-FVd" secondAttribute="trailing" id="gWV-Gq-L6d"/>
+                        <constraint firstAttribute="bottom" secondItem="yKO-lh-Ic3" secondAttribute="bottom" id="l4N-eT-Pxb"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b3f-9a-qT3">
+                    <rect key="frame" x="0.0" y="333.5" width="375" height="333.5"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="choose2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="7ov-Du-Ndo">
+                    <rect key="frame" x="0.0" y="333.5" width="375" height="333.5"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I2g-c8-xPa">
+                    <rect key="frame" x="0.0" y="333.5" width="375" height="333.5"/>
+                    <state key="normal" image="choose2text.png"/>
+                    <connections>
+                        <action selector="choose2:" destination="-1" eventType="touchUpInside" id="sXB-03-SOC"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="8aO-Ju-o7F" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="7Q8-DR-CMo"/>
+                <constraint firstAttribute="trailing" secondItem="b3f-9a-qT3" secondAttribute="trailing" id="Al0-zM-k4h"/>
+                <constraint firstAttribute="bottom" secondItem="I2g-c8-xPa" secondAttribute="bottom" id="EY7-8Z-RWf"/>
+                <constraint firstItem="7ov-Du-Ndo" firstAttribute="top" secondItem="8aO-Ju-o7F" secondAttribute="bottom" id="MKF-CL-O4f"/>
+                <constraint firstAttribute="trailing" secondItem="I2g-c8-xPa" secondAttribute="trailing" id="SPQ-Uo-RD0"/>
+                <constraint firstItem="b3f-9a-qT3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="X3W-XV-Bca"/>
+                <constraint firstItem="7ov-Du-Ndo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ez1-QI-dPl"/>
+                <constraint firstItem="I2g-c8-xPa" firstAttribute="top" secondItem="8aO-Ju-o7F" secondAttribute="bottom" id="iL2-fk-URT"/>
+                <constraint firstItem="8aO-Ju-o7F" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="kN7-ed-P6B"/>
+                <constraint firstItem="b3f-9a-qT3" firstAttribute="height" secondItem="8aO-Ju-o7F" secondAttribute="height" id="pxv-tq-JyF"/>
+                <constraint firstAttribute="bottom" secondItem="7ov-Du-Ndo" secondAttribute="bottom" id="rMs-RQ-Lir"/>
+                <constraint firstItem="b3f-9a-qT3" firstAttribute="top" secondItem="8aO-Ju-o7F" secondAttribute="bottom" id="tda-Ru-YmO"/>
+                <constraint firstAttribute="trailing" secondItem="8aO-Ju-o7F" secondAttribute="trailing" id="tvF-9c-mpg"/>
+                <constraint firstItem="I2g-c8-xPa" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="uqm-VE-jWG"/>
+                <constraint firstAttribute="trailing" secondItem="7ov-Du-Ndo" secondAttribute="trailing" id="v5c-uM-Yum"/>
+                <constraint firstAttribute="bottom" secondItem="b3f-9a-qT3" secondAttribute="bottom" id="yEX-p3-81n"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="choose1.jpg" width="1125" height="1001"/>
+        <image name="choose1text.png" width="145" height="100"/>
+        <image name="choose2.jpg" width="1125" height="1001"/>
+        <image name="choose2text.png" width="151" height="100"/>
+    </resources>
+</document>

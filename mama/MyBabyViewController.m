@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *nicknametF;
 @property (weak, nonatomic) IBOutlet UITextField *birthdayTf;
 @property (weak, nonatomic) IBOutlet UIButton *sexBtn;
+@property (weak, nonatomic) IBOutlet UIView *cardView;
 
 @end
 
@@ -21,6 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title  = @"我的宝贝";
+    [self.cardView setShardow];
     // Do any additional setup after loading the view from its nib.
 }
 - (IBAction)addHeadImage:(id)sender {

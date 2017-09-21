@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *birthdaytf;
 @property (weak, nonatomic) IBOutlet UITextField *nicknametf;
 @property (weak, nonatomic) IBOutlet UIButton *sexBtn;
+@property (weak, nonatomic) IBOutlet UIView *cardView;
 
 @end
