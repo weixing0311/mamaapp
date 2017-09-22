@@ -12,7 +12,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *searchtf;
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 @property (weak, nonatomic) IBOutlet UIView *searchCard;
-
+@property (nonatomic,strong) UIButton * selectBtn;
 @end
 
 @implementation YYKnowledgeViewController
@@ -23,10 +23,18 @@
     self.tableview.delegate = self;
     self.tableview.dataSource = self;
     [self setExtraCellLineHiddenWithTb:self.tableview];
+    self.selectBtn = (UIButton *)[self.view viewWithTag:1];
 }
 - (IBAction)didClickBack:(id)sender {
 }
 - (IBAction)changeSegment:(UIButton *)sender {
+    if (sender.tag ==self.selectBtn.tag) {
+        return;
+    }else{
+        sender.selected = YES;
+        self.selectBtn.selected =NO;
+        self.selectBtn = sender;
+    }
 }
 
 
