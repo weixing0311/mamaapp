@@ -40,5 +40,8 @@ typedef void (^requestFailureBlock)(NSError *error);
                       success:(requestSuccessBlock)success
                       failure:(requestFailureBlock)failure;
 
-
+-(NSURLSessionTask*)get:(NSString*)url
+              paramters:(NSDictionary*)paramters
+                success:(void (^)(NSURLSessionTask *operation, id responseObject))success
+                failure:(void (^)(NSURLSessionTask *operation, NSError *error))failure;
 @end

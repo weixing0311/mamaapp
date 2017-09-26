@@ -43,7 +43,7 @@
 
 //domain
 //正式
-#define kMyBaseUrl @"https://mall.fitgeneral.com/"
+#define kMyBaseUrl @"http://47.94.91.183:8080/tiny-api/"
 
 
 ////hex 颜色

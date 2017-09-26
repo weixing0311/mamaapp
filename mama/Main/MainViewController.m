@@ -25,6 +25,11 @@
 @end
 
 @implementation MainViewController
+{
+    NSString * weatherEstr;
+    NSString * weatherCstr;
+    NSString * wenDuStr;
+}
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -55,7 +60,34 @@
     [_dataArray addObject:@"背景"];
     
     
+    [self getMamaInfo];
     // Do any additional setup after loading the view from its nib.
+}
+
+-(void)getMamaInfo
+{
+    //http://47.94.91.183:8080/tiny-api/user/mama_info?uid=819113888506318848
+    NSMutableDictionary * params =[NSMutableDictionary dictionary];
+    [params safeSetObject:@"819113888506318848" forKey:@"uid"];
+    [[BaseSerVice sharedManager]post:@"user/mama_info" paramters:params success:^(NSDictionary *dic) {
+        NSDictionary * dataDict =[dic safeObjectForKey:@"data"];
+        [[UserModel shareInstance]savemamaInfoWithdict:dataDict];
+    } failure:^(NSError *error) {
+        
+    }];
+}
+-(void)getWeather
+{
+    NSString * cityStr = [UserModel shareInstance].city;
+    NSString * appKey = @"819113888506318848";
+    
+    
+    NSString * urlStr = [NSString stringWithFormat:@"https://free-api.heweather.com/v5/weather?city=%@&key=%@",cityStr,appKey];
+    [[BaseSerVice sharedManager]post:urlStr paramters:nil success:^(NSDictionary *dic) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
 }
 - (IBAction)didClickLeft:(id)sender {
     [self.navigationController setNavigationBarHidden:NO animated:YES];
@@ -68,6 +100,7 @@
     SearchViewController * search = [[SearchViewController alloc]init];
     [self.navigationController pushViewController:search animated:YES];
 }
+
 
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -154,6 +187,13 @@
         if (!cell) {
             cell = [[UserModel shareInstance]getXibCellWithTitle:identifier];
         }
+        
+        NSDictionary * dic = [UserModel shareInstance].babies[0];
+        [cell.headImageView sd_setImageWithURL:[NSURL URLWithString:[dic safeObjectForKey:@"thumb"]]];
+        cell.nameLabel.text = [dic safeObjectForKey:@"nickname"];
+        cell.dateLabel.text = [NSString stringWithFormat:@"%@ %@",[self getDate],[self getweek]];
+        
+        
         return cell;
         
     }
@@ -194,6 +234,30 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
+
+
+
+//获取星期几
+-(NSDateComponents *)getweek
+{
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    
+    NSDateComponents *comps = [[NSDateComponents alloc] init];
+    NSInteger unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitWeekday |
+    NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
+    
+    comps = [calendar components:unitFlags fromDate:[NSDate date]];
+    return comps;
+}
+-(NSString *)getDate
+{
+    NSDateFormatter *outputFormatter= [[NSDateFormatter alloc] init];
+    [outputFormatter setLocale:[NSLocale currentLocale]];
+    [outputFormatter setDateFormat:@"MM月dd日"];
+    NSString *string= [outputFormatter stringFromDate:[NSDate date]];
+    return string;
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

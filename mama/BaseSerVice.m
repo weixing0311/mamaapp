@@ -200,5 +200,20 @@
     return dic;
     
 }
+-(NSURLSessionTask*)get:(NSString*)url
+              paramters:(NSDictionary*)paramters
+                success:(void (^)(NSURLSessionTask *operation, id responseObject))success
+                failure:(void (^)(NSURLSessionTask *operation, NSError *error))failure
+{
+    
+    
+    NSURLSessionTask* operation = [manager GET:[NSString stringWithFormat:@"%@%@",[self JFADomin],url] parameters:paramters success:^(NSURLSessionTask *operation, id responseObject) {
+        success(operation,responseObject);
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
+        failure(operation,error);
+    }];
+    
+    return operation;
+}
 
 @end
