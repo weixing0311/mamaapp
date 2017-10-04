@@ -12,6 +12,7 @@
 #import "MainThirdCell.h"
 #import "MainTabHeadView.h"
 #import "MainFootView.h"
+#import "MineViewController.h"
 @interface MainViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UIButton *leftBtn;
 @property (weak, nonatomic) IBOutlet UIButton *rightBtn;
@@ -37,7 +38,17 @@
 
     // Do any additional setup after loading the view from its nib.
 }
+
+-(void)getInfo
+{
+    []
+}
+
+
 - (IBAction)didClickLeft:(id)sender {
+    
+    MineViewController * mine = [[MineViewController alloc]init];
+    [self.navigationController pushViewController:mine animated:YES];
 }
 - (IBAction)didClickRight:(id)sender {
 }

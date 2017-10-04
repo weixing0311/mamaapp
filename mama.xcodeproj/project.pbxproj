@@ -613,7 +613,7 @@
 				TargetAttributes = {
 					6C1DBC331F5D497700F5B975 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = AZ8E9LFA87;
+						DevelopmentTeam = 9PRAC8XV5J;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -941,8 +941,8 @@
 			baseConfigurationReference = 58A690C68A9DF126CD5FB3A6 /* Pods-mama.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = AZ8E9LFA87;
-				GCC_PREFIX_HEADER = /Users/cheer_haryy/Desktop/mama/mama/PrefixHeader.pch;
+				DEVELOPMENT_TEAM = 9PRAC8XV5J;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/mama/PrefixHeader.pch";
 				INFOPLIST_FILE = mama/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "-1.mama";
@@ -955,8 +955,8 @@
 			baseConfigurationReference = 31F05D6CF5F48C698FF53C35 /* Pods-mama.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = AZ8E9LFA87;
-				GCC_PREFIX_HEADER = /Users/cheer_haryy/Desktop/mama/mama/PrefixHeader.pch;
+				DEVELOPMENT_TEAM = 9PRAC8XV5J;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/mama/PrefixHeader.pch";
 				INFOPLIST_FILE = mama/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "-1.mama";

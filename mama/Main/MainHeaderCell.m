@@ -13,8 +13,9 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    self.imageBgView.layer.borderWidth= 2;
-    self.imageBgView.layer.borderColor = [UIColor orangeColor].CGColor;
+//    self.imageBgView.layer.borderWidth= 2;
+//    self.imageBgView.layer.borderColor = [UIColor orangeColor].CGColor;
+    self.headImageView.image = getImage(@"意见反馈背景");
 
 }
 
