@@ -10,6 +10,7 @@
 
 @interface AbouUsViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *versionLabel;
+@property (weak, nonatomic) IBOutlet UIView *cardView;
 
 @end
 
@@ -18,6 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"关于我们";
+    [self.cardView setShardow];
     // Do any additional setup after loading the view from its nib.
 }
 

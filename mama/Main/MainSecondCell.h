@@ -8,6 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainSecondCell : UITableViewCell
+@protocol mainSecondCellDelegate;
+@interface MainSecondCell : UITableViewCell<UIScrollViewDelegate>
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *title2lb;
+@property (weak, nonatomic) IBOutlet UILabel *contentlb;
+-(void)buildImageWithArray:(NSArray * )images;
+@property (weak, nonatomic) IBOutlet UIView *imageBGView;
+@property (nonatomic,strong)UIScrollView * scrollView;
+@property (nonatomic,assign)id<mainSecondCellDelegate>delegate;
+@end
+
+
+@protocol mainSecondCellDelegate <NSObject>
+
+-(void)ChangePageWithCount:(NSInteger)page;
 
 @end

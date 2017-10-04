@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ArticleDetailViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="webView" destination="HJV-cM-2AC" id="Ut8-PK-VfF"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D8E-Ma-OdG">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HJV-cM-2AC">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </webView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="HJV-cM-2AC" firstAttribute="leading" secondItem="D8E-Ma-OdG" secondAttribute="leading" id="6TH-Mn-ihl"/>
+                        <constraint firstItem="HJV-cM-2AC" firstAttribute="top" secondItem="D8E-Ma-OdG" secondAttribute="top" id="BMk-j4-Xy0"/>
+                        <constraint firstAttribute="bottom" secondItem="HJV-cM-2AC" secondAttribute="bottom" id="Usm-Dv-dJk"/>
+                        <constraint firstAttribute="trailing" secondItem="HJV-cM-2AC" secondAttribute="trailing" id="Wbx-5J-DJW"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="D8E-Ma-OdG" secondAttribute="trailing" id="1Az-qc-gfQ"/>
+                <constraint firstItem="D8E-Ma-OdG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="6Vh-Qa-2Gc"/>
+                <constraint firstItem="D8E-Ma-OdG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="MEY-Qu-tLq"/>
+                <constraint firstAttribute="bottom" secondItem="D8E-Ma-OdG" secondAttribute="bottom" id="V02-TG-iaD"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyBabyViewController">
             <connections>
                 <outlet property="birthdayTf" destination="fSI-vo-Y9M" id="ZTL-vY-3av"/>
+                <outlet property="cardView" destination="GBS-NZ-zoZ" id="SsL-KS-C0t"/>
                 <outlet property="headImageView" destination="zaW-BP-6Y5" id="jac-Bg-c98"/>
                 <outlet property="nicknametF" destination="tnF-db-vER" id="KDA-Gq-5nj"/>
                 <outlet property="sexBtn" destination="6TX-Ug-DhT" id="bLF-gM-m7Y"/>

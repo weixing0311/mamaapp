@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gTV-IL-0wX" customClass="CardCell">
+            <rect key="frame" x="0.0" y="0.0" width="100" height="40"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="100" height="40"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="COW-oL-imS">
+                        <rect key="frame" x="0.0" y="0.0" width="100" height="40"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标签" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YBW-aj-B5j">
+                                <rect key="frame" x="1" y="1" width="98" height="38"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="YBW-aj-B5j" secondAttribute="trailing" constant="1" id="6sc-f2-JpK"/>
+                            <constraint firstItem="YBW-aj-B5j" firstAttribute="top" secondItem="COW-oL-imS" secondAttribute="top" constant="1" id="B5i-JA-lpm"/>
+                            <constraint firstItem="YBW-aj-B5j" firstAttribute="leading" secondItem="COW-oL-imS" secondAttribute="leading" constant="1" id="R08-57-kQv"/>
+                            <constraint firstAttribute="bottom" secondItem="YBW-aj-B5j" secondAttribute="bottom" constant="1" id="k80-yl-yMR"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="COW-oL-imS" secondAttribute="bottom" id="2dR-x2-tly"/>
+                <constraint firstItem="COW-oL-imS" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Dqg-i9-nv4"/>
+                <constraint firstItem="COW-oL-imS" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="jPJ-rg-t4Y"/>
+                <constraint firstAttribute="trailing" secondItem="COW-oL-imS" secondAttribute="trailing" id="vqh-Vu-pQ1"/>
+            </constraints>
+            <connections>
+                <outlet property="CardLabel" destination="YBW-aj-B5j" id="Pfu-2u-rlV"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+</document>

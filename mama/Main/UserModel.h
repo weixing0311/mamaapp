@@ -7,10 +7,39 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface UserModel : NSObject
+@interface UserModel : NSObject<CLLocationManagerDelegate>
 +(UserModel *)shareInstance;
 
+
+@property (nonatomic,copy) NSString * uid;
+@property (nonatomic,copy) NSString * stage;
+@property (nonatomic,copy) NSString * edoc;
+@property (nonatomic,copy) NSString * bcount;
+@property (nonatomic,copy) NSArray  * babies;
+@property (nonatomic,copy) NSString * city;
+@property (nonatomic,copy) NSString * headImgUrl;
+@property (nonatomic,copy) NSString * nickName;
+//@property (nonatomic,copy) NSString *;
+//@property (nonatomic,copy) NSString *;
+//@property (nonatomic,copy) NSString *;
+//@property (nonatomic,copy) NSString *;
+//@property (nonatomic,copy) NSString *;
+//@property (nonatomic,copy) NSString *;
+
+
+
+-(void)savemamaInfoWithdict:(NSDictionary *)dict;
+
+
+
+
+
 -(id)getXibCellWithTitle:(NSString *)title;
+-(void)showSuccessWithStatus:(NSString *)status;
+-(void)showErrorWithStatus:(NSString *)status;
+-(void)showInfoWithStatus:(NSString *)status;
+-(void)dismiss;
 
 @end

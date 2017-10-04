@@ -13,6 +13,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    
 }
 - (IBAction)didClickHeadImage:(id)sender {
 }

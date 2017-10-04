@@ -10,6 +10,7 @@
 #import "CallBackViewController.h"
 #import "AbouUsViewController.h"
 #import "MyInfoViewController.h"
+#import "YYKnowledgeViewController.h"
 @interface MineViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *headImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nickName;
@@ -23,6 +24,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self.headImageView sd_setImageWithURL:[NSURL URLWithString:[UserModel shareInstance].headImgUrl]placeholderImage:getImage(@"默认头像")];
+    self.nickName.text = [UserModel shareInstance].nickName;
 }
 - (IBAction)changeUser:(id)sender {
 }
@@ -31,6 +34,8 @@
     [self.navigationController pushViewController:my animated:YES];
 }
 - (IBAction)pregnantWomanInfo:(id)sender {
+    YYKnowledgeViewController * yyk = [[YYKnowledgeViewController alloc]init];
+    [self.navigationController pushViewController:yyk animated:YES];
 }
 - (IBAction)aboutUs:(id)sender {
     AbouUsViewController * ab = [[AbouUsViewController alloc]init];

@@ -13,12 +13,15 @@
 @property (weak, nonatomic) IBOutlet UITextField *mobileTf;
 @property (weak, nonatomic) IBOutlet UITextField *verTf;
 
+@property (weak, nonatomic) IBOutlet UIView *cardView;
 @end
 
 @implementation LoignViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"登录";
+    [self.cardView setShardow];
     // Do any additional setup after loading the view from its nib.
 }
 - (IBAction)getVer:(id)sender {
