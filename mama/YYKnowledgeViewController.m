@@ -7,7 +7,7 @@
 //
 
 #import "YYKnowledgeViewController.h"
-
+#import "YYInfoCell.h"
 @interface YYKnowledgeViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITextField *searchtf;
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
@@ -45,6 +45,13 @@
 -(void)getListInfo
 {
     
+    
+    [_dataArray addObject:@"常见疾病"];
+    [_dataArray addObject:@"日常生活"];
+    [_dataArray addObject:@"身体变化"];
+    [_dataArray addObject:@"发育状况"];
+    [self.tableview reloadData];
+    return;
     NSMutableDictionary * params = [NSMutableDictionary dictionary];
     [params safeSetObject:@"819113888506318848" forKey:@"uid"];
     [params safeSetObject:@"b5f0ff83f16765a7a60e6d3d546e068c" forKey:@"stageId"];
@@ -68,20 +75,27 @@
     }
 }
 
-
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    float height = [self calculateCellHeightWithArray:nil];
+    
+    return height;
+}
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return _dataArray.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString * identifier = @"cell";
-    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    static NSString * identifier = @"YYInfoCell";
+    YYInfoCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell = [self getXibCellWithTitle:identifier];
     }
-    NSDictionary * dic = [_dataArray objectAtIndex:indexPath.row];
-//    [cell setCardInfoArray:nil];
+//    NSDictionary * dic = [_dataArray objectAtIndex:indexPath.row];
+    cell.titleLabel.text = _dataArray[indexPath.row];
+    [cell setCardInfoArray:nil];
     
     return cell;
 }
@@ -90,7 +104,21 @@
 {
     
 }
+-(float)calculateCellHeightWithArray:(NSArray * )arr
+{
+    NSArray * array = @[@"不好吃",@"真不好吃",@"不好吃",@"真不好吃",@"不好吃",@"真不好吃"];
+    NSDictionary *attributes = @{NSFontAttributeName:[UIFont systemFontOfSize:14],};
+    float width = 0.00;
+    for (int i =0; i<array.count; i++) {
+        NSString * textStr = [array objectAtIndex:i];
+        CGSize textSize = [textStr boundingRectWithSize:CGSizeMake(100, 20) options:NSStringDrawingTruncatesLastVisibleLine attributes:attributes context:nil].size;
+        width += textSize.width+10;
+    }
 
+    
+    return 80+25*(1+(int)width/(JFA_SCREEN_WIDTH-40));
+    
+}
 
 -(void)ChangeMySegmentStyle:(UISegmentedControl*)segment
 {

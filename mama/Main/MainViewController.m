@@ -97,7 +97,22 @@
         
     }];
 }
+-(void)yanZhengToken
+{
+    
+    NSMutableDictionary * params =[NSMutableDictionary dictionary];
+    [params safeSetObject:[UserModel shareInstance].uid forKey:@"uid"];
+    [params safeSetObject:[UserModel shareInstance].token forKey:@"token"];
+    [[BaseSerVice sharedManager]post:@"user/validate_login" paramters:params success:^(NSDictionary *dic) {
+        NSMutableDictionary * dataDict=[dic safeObjectForKey:@"data"];
+        NSArray * arr = [dataDict safeObjectForKey:@"blocks"];
+        DLog(@"arr--%lu",(unsigned long)arr.count);
+        DLog(@"ListInfo--%@",dic);
+    } failure:^(NSError *error) {
+        
+    }];
 
+}
 -(void)getListInfo
 {
     NSMutableDictionary * params =[NSMutableDictionary dictionary];

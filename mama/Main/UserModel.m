@@ -39,8 +39,76 @@ static UserModel *model;
     self.bcount = [dict safeObjectForKey:@"bcount"];
     self.babies = [NSArray arrayWithArray:[dict safeObjectForKey:@"babies"]];
     
+}
+-(void)setLoignInfoWithDict:(NSDictionary *)dict
+{
+    self.uid      = [dict safeObjectForKey:@"uid"];
+    self.username    = [dict safeObjectForKey:@"username"];
+    self.phone    = [dict safeObjectForKey:@"phone"];
+    self.headImgUrl     = [dict safeObjectForKey:@"headpic"];
+    self.nickName    = [dict safeObjectForKey:@"nickName"];
+    self.sex      = [[dict safeObjectForKey:@"sex"]intValue];
+    self.email      = [dict safeObjectForKey:@"email"];
+    self.password    = [dict safeObjectForKey:@"birthday"];
+    self.token       = [dict safeObjectForKey:@"token"];
+    self.sinaid       = [dict safeObjectForKey:@"child"];
+    self.qqid    = [dict safeObjectForKey:@"userType"];
+    self.wxid =[dict safeObjectForKey:@"wxid"];
+    self.regTime = [dict safeObjectForKey:@"regTime"];
+    self.grade       = [dict safeObjectForKey:@"grade"];
+    self.isVisitor    = [dict safeObjectForKey:@"isVisitor"];
+    self.idCard    = [dict safeObjectForKey:@"idCard"];
+
+}
+
+-(void)writeToDocWithDict:(NSDictionary*)dict
+{
+    // NSDocumentDirectory 要查找的文件
+    // NSUserDomainMask 代表从用户文件夹下找
+    // 在iOS中，只有一个目录跟传入的参数匹配，所以这个集合里面只有一个元素
+    
+    NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+    NSString *filePath = [path stringByAppendingPathComponent:@"UserInfo.plist"];
+    [dict writeToFile:filePath atomically:YES];
     
 }
+-(void)readToDoc
+{
+    NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+    
+    NSString *filePath = [path stringByAppendingPathComponent:@"UserInfo.plist"];
+    // 解档
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithContentsOfFile:filePath];
+    self.uid      = [dict safeObjectForKey:@"uid"];
+    self.username    = [dict safeObjectForKey:@"username"];
+    self.phone    = [dict safeObjectForKey:@"phone"];
+    self.headImgUrl     = [dict safeObjectForKey:@"headpic"];
+    self.nickName    = [dict safeObjectForKey:@"nickName"];
+    self.sex      = [[dict safeObjectForKey:@"sex"]intValue];
+    self.email      = [dict safeObjectForKey:@"email"];
+    self.password    = [dict safeObjectForKey:@"birthday"];
+    self.token       = [dict safeObjectForKey:@"token"];
+    self.sinaid       = [dict safeObjectForKey:@"child"];
+    self.qqid    = [dict safeObjectForKey:@"userType"];
+    self.wxid =[dict safeObjectForKey:@"wxid"];
+    self.regTime = [dict safeObjectForKey:@"regTime"];
+    self.grade       = [dict safeObjectForKey:@"grade"];
+    self.isVisitor    = [dict safeObjectForKey:@"isVisitor"];
+    self.idCard    = [dict safeObjectForKey:@"idCard"];
+    
+    self.uid = [dict safeObjectForKey:@"uid"];
+    self.stage = [dict safeObjectForKey:@"stage"];
+    self.edoc = [dict safeObjectForKey:@"edoc"];
+    self.bcount = [dict safeObjectForKey:@"bcount"];
+    self.babies = [NSArray arrayWithArray:[dict safeObjectForKey:@"babies"]];
+
+}
+
+
+
+
+
+
 
 -(id)getXibCellWithTitle:(NSString *)title
 {

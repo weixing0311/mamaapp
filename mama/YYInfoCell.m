@@ -25,6 +25,7 @@
 }
 -(void)setCardInfoArray:(NSArray * )array
 {
+    array = @[@"不好吃",@"真不好吃",@"不好吃",@"真不好吃",@"不好吃",@"真不好吃"];
     _cardArray =[NSMutableArray arrayWithArray:array];
     [self.cardCollectionView reloadData];
 }
@@ -46,7 +47,6 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     CardCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CardCell" forIndexPath:indexPath];
-    NSDictionary *attributes = @{NSFontAttributeName:[UIFont systemFontOfSize:20],};
     NSString * textStr = [_cardArray objectAtIndex:indexPath.row];
     cell.CardLabel.text = textStr;
     return cell;
@@ -55,11 +55,11 @@
 //设置item大小
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDictionary *attributes = @{NSFontAttributeName:[UIFont systemFontOfSize:20],};
+    NSDictionary *attributes = @{NSFontAttributeName:[UIFont systemFontOfSize:14],};
     NSString * textStr = [_cardArray objectAtIndex:indexPath.row];
     CGSize textSize = [textStr boundingRectWithSize:CGSizeMake(100, 20) options:NSStringDrawingTruncatesLastVisibleLine attributes:attributes context:nil].size;;
 
-    return CGSizeMake((JFA_SCREEN_WIDTH-20)/2, textSize.width+10);
+    return CGSizeMake(textSize.width+10, 20);
 }
 //这个是两行cell之间的间距（上下行cell的间距）
 

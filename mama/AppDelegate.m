@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
+#import "GuideViewController.h"
+#import "LoignViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -20,9 +22,39 @@
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    MainViewController * main = [[MainViewController alloc]initWithNibName:@"MainViewController" bundle:nil];
+    
+    if ([UserModel shareInstance].token.length>0) {
+        MainViewController * main = [[MainViewController alloc]initWithNibName:@"MainViewController" bundle:nil];
         UINavigationController *nav =[[UINavigationController alloc]initWithRootViewController:main];
-    [self.window setRootViewController:nav];
+        [main yanZhengToken];
+        [self.window setRootViewController:nav];
+    }
+    else
+    {
+        if (![[NSUserDefaults standardUserDefaults]objectForKey:@"isFirstOpen"]) {
+            [[NSUserDefaults standardUserDefaults]setObject:@"1" forKey:@"isFirstOpen"];
+            GuideViewController * main = [[GuideViewController alloc]initWithNibName:@"GuideViewController" bundle:nil];
+            UINavigationController *nav =[[UINavigationController alloc]initWithRootViewController:main];
+            
+            [self.window setRootViewController:nav];
+
+        }else{
+            LoignViewController * main = [[LoignViewController alloc]initWithNibName:@"LoignViewController" bundle:nil];
+            UINavigationController *nav =[[UINavigationController alloc]initWithRootViewController:main];
+            
+            [self.window setRootViewController:nav];
+
+        }
+        
+        
+        
+        
+    }
+
+    
+    
+    
+    
 
     return YES;
 }
