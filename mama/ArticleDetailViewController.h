@@ -9,5 +9,7 @@
 #import "BaseViewController.h"
 
 @interface ArticleDetailViewController : BaseViewController
+@property (nonatomic,copy)NSString * urlStr;
+@property (nonatomic,copy)NSString * uid;
 
 @end

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2610CADB1F84B819009BE547 /* YYInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2610CAD91F84B819009BE547 /* YYInfoCell.m */; };
+		2610CADC1F84B819009BE547 /* YYInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2610CADA1F84B819009BE547 /* YYInfoCell.xib */; };
+		2610CAE01F84BA13009BE547 /* CardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2610CADE1F84BA13009BE547 /* CardCell.m */; };
+		2610CAE11F84BA13009BE547 /* CardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2610CADF1F84BA13009BE547 /* CardCell.xib */; };
 		6C0185C61F68CF8B00ECC707 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C0185C41F68CF8B00ECC707 /* SearchViewController.m */; };
 		6C0185C71F68CF8B00ECC707 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C0185C51F68CF8B00ECC707 /* SearchViewController.xib */; };
 		6C0185CB1F68D0B900ECC707 /* UIView+LayerCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C0185CA1F68D0B900ECC707 /* UIView+LayerCustom.m */; };
@@ -180,6 +184,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2610CAD81F84B819009BE547 /* YYInfoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYInfoCell.h; sourceTree = "<group>"; };
+		2610CAD91F84B819009BE547 /* YYInfoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYInfoCell.m; sourceTree = "<group>"; };
+		2610CADA1F84B819009BE547 /* YYInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YYInfoCell.xib; sourceTree = "<group>"; };
+		2610CADD1F84BA13009BE547 /* CardCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardCell.h; sourceTree = "<group>"; };
+		2610CADE1F84BA13009BE547 /* CardCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardCell.m; sourceTree = "<group>"; };
+		2610CADF1F84BA13009BE547 /* CardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardCell.xib; sourceTree = "<group>"; };
 		31F05D6CF5F48C698FF53C35 /* Pods-mama.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mama.release.xcconfig"; path = "Pods/Target Support Files/Pods-mama/Pods-mama.release.xcconfig"; sourceTree = "<group>"; };
 		539D3070BF6747521200DB7D /* libPods-mama.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-mama.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		58A690C68A9DF126CD5FB3A6 /* Pods-mama.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mama.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mama/Pods-mama.debug.xcconfig"; sourceTree = "<group>"; };
@@ -414,6 +424,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2610CAE21F84E78B009BE547 /* ContentVC(内容详情页面) */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "ContentVC(内容详情页面)";
+			sourceTree = "<group>";
+		};
 		4A48D0184B42239805E687AA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -536,6 +553,12 @@
 				6C0186211F69083400ECC707 /* YYKnowledgeViewController.h */,
 				6C0186221F69083400ECC707 /* YYKnowledgeViewController.m */,
 				6C0186231F69083400ECC707 /* YYKnowledgeViewController.xib */,
+				2610CAD81F84B819009BE547 /* YYInfoCell.h */,
+				2610CAD91F84B819009BE547 /* YYInfoCell.m */,
+				2610CADA1F84B819009BE547 /* YYInfoCell.xib */,
+				2610CADD1F84BA13009BE547 /* CardCell.h */,
+				2610CADE1F84BA13009BE547 /* CardCell.m */,
+				2610CADF1F84BA13009BE547 /* CardCell.xib */,
 			);
 			name = "YYknowledge(孕婴知识)";
 			sourceTree = "<group>";
@@ -563,6 +586,7 @@
 			children = (
 				6C1DBC3A1F5D497700F5B975 /* AppDelegate.h */,
 				6C1DBC3B1F5D497700F5B975 /* AppDelegate.m */,
+				2610CAE21F84E78B009BE547 /* ContentVC(内容详情页面) */,
 				6C0186201F69081700ECC707 /* YYknowledge(孕婴知识) */,
 				6C01860E1F68DF2400ECC707 /* article(文章详情) */,
 				6C0185C21F68CF6E00ECC707 /* Search */,
@@ -889,6 +913,7 @@
 			files = (
 				6C1DBD291F5E46CE00F5B975 /* 闪屏渐变@2x.png in Resources */,
 				6C1DBCFC1F5E46CE00F5B975 /* 抽屉@2x.png in Resources */,
+				2610CAE11F84BA13009BE547 /* CardCell.xib in Resources */,
 				6C1DBD4F1F5E57B900F5B975 /* MineViewController.xib in Resources */,
 				6C1DBCE61F5E46CE00F5B975 /* 分享@3x.png in Resources */,
 				6C1DBD211F5E46CE00F5B975 /* 背景@2x.png in Resources */,
@@ -904,6 +929,7 @@
 				6C1DBCE71F5E46CE00F5B975 /* 切换小@2x.png in Resources */,
 				6C1DBCEF1F5E46CE00F5B975 /* 孕妇资料背景@2x.png in Resources */,
 				6C1DBD181F5E46CE00F5B975 /* 立即开启@2x.png in Resources */,
+				2610CADC1F84B819009BE547 /* YYInfoCell.xib in Resources */,
 				6C1DBD1F1F5E46CE00F5B975 /* choose2text@2x.png in Resources */,
 				6C1DBC671F5D49BC00F5B975 /* MainFootView.xib in Resources */,
 				6C0185C71F68CF8B00ECC707 /* SearchViewController.xib in Resources */,
@@ -1079,9 +1105,11 @@
 				6C1DBC681F5D49BC00F5B975 /* MainHeaderCell.m in Sources */,
 				6C0186041F68D82E00ECC707 /* UIView+Board.m in Sources */,
 				6C0185FF1F68D82E00ECC707 /* UIImage+LocalImage.m in Sources */,
+				2610CADB1F84B819009BE547 /* YYInfoCell.m in Sources */,
 				6C0186171F68DF7200ECC707 /* SearchResultCell.m in Sources */,
 				6C0185F81F68D82E00ECC707 /* NSDate+Utilities.m in Sources */,
 				6C0185F61F68D82E00ECC707 /* NSArray+Extension.m in Sources */,
+				2610CAE01F84BA13009BE547 /* CardCell.m in Sources */,
 				6C1DBC6E1F5D49BC00F5B975 /* MainThirdCell.m in Sources */,
 				6C1DBC6C1F5D49BC00F5B975 /* MainTabHeadView.m in Sources */,
 				6C1DBD531F5E725800F5B975 /* AbouUsViewController.m in Sources */,
@@ -1226,11 +1254,14 @@
 			baseConfigurationReference = 58A690C68A9DF126CD5FB3A6 /* Pods-mama.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = AZ8E9LFA87;
-				GCC_PREFIX_HEADER = /Users/cheer_haryy/Desktop/mama/mama/PrefixHeader.pch;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/mama/PrefixHeader.pch";
 				INFOPLIST_FILE = mama/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "-1.mama";
+				PRODUCT_BUNDLE_IDENTIFIER = cn.hguard.tiweishi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1240,11 +1271,13 @@
 			baseConfigurationReference = 31F05D6CF5F48C698FF53C35 /* Pods-mama.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = AZ8E9LFA87;
-				GCC_PREFIX_HEADER = /Users/cheer_haryy/Desktop/mama/mama/PrefixHeader.pch;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/mama/PrefixHeader.pch";
 				INFOPLIST_FILE = mama/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "-1.mama";
+				PRODUCT_BUNDLE_IDENTIFIER = cn.hguard.tiweishi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

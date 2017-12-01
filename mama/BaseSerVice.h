@@ -33,6 +33,11 @@ typedef void (^requestFailureBlock)(NSError *error);
                   success:(requestSuccessBlock)success
                   failure:(requestFailureBlock)failure;
 
+
+-(NSURLSessionTask *)postVenderUrl:(NSString *)url
+                         paramters:(NSMutableDictionary *)paramters
+                           success:(requestSuccessBlock)success
+                           failure:(requestFailureBlock)failure;
 -(NSURLSessionTask*)postImage:(NSString*)url
                     paramters:(NSMutableDictionary *)paramters
                     imageData:(NSData *)imageData

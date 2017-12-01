@@ -54,10 +54,10 @@
 {
     return [AFHTTPRequestSerializer serializer];
 }
--(NSURLSessionTask*)post1:(NSString*)url
-                paramters:(NSMutableDictionary *)paramters
-                  success:(requestSuccessBlock)success
-                  failure:(requestFailureBlock)failure
+-(NSURLSessionTask*)post:(NSString*)url
+               paramters:(NSMutableDictionary *)paramters
+                 success:(requestSuccessBlock)success
+                 failure:(requestFailureBlock)failure;
 {
 //    [manager.requestSerializer setValue:[UserModel shareInstance].userId?[UserModel shareInstance].userId:@"" forHTTPHeaderField:@"userId"];
 //    [manager.requestSerializer setValue:@"2" forHTTPHeaderField:@"source"];
@@ -72,9 +72,9 @@
         //        [SVProgressHUD dismiss];
         NSDictionary * dic = [self dictionaryWithData:responseObject];
         
-        NSString * statusStr =[dic safeObjectForKey:@"status"];
+        NSString * statusStr =[dic safeObjectForKey:@"message"];
         int  code =[[dic safeObjectForKey:@"code"]intValue];
-        DLog(@"%@--%@--%@",dic ,[dic objectForKey:@"code"],[dic objectForKey:@"message"]);
+        DLog(@"%@--%@--%@--%@",dic ,[dic objectForKey:@"code"],[dic objectForKey:@"message"],url);
         
         
         if (code  ==601) {//登录失效
@@ -91,7 +91,7 @@
                     success(dic);
                 }else{
                     [SVProgressHUD dismiss];
-//                    [[UserModel shareInstance] showInfoWithStatus:[dic objectForKey:@"message"]];
+                    [[UserModel shareInstance] showInfoWithStatus:[dic objectForKey:@"message"]];
                     NSError * error = [[NSError alloc]initWithDomain:NSURLErrorDomain code:[[dic objectForKey:@"code"]intValue] userInfo:dic];
                     
                     failure(error);
@@ -199,6 +199,69 @@
     
     return dic;
     
+}
+
+-(NSURLSessionTask *)postVenderUrl:(NSString *)url
+                         paramters:(NSMutableDictionary *)paramters
+                           success:(requestSuccessBlock)success
+                           failure:(requestFailureBlock)failure
+{
+    //    [manager.requestSerializer setValue:[UserModel shareInstance].userId?[UserModel shareInstance].userId:@"" forHTTPHeaderField:@"userId"];
+    //    [manager.requestSerializer setValue:@"2" forHTTPHeaderField:@"source"];
+    //    [manager.requestSerializer setValue:[UserModel shareInstance].token?[UserModel shareInstance].token:@"" forHTTPHeaderField:@"token"];
+    //    [manager.requestSerializer setValue:[[UserModel shareInstance] getVersion] forHTTPHeaderField:@"version"];
+    DLog(@"request.Url-%@",[NSString stringWithFormat:@"%@%@",[self JFADomin],url]);
+    
+    
+    //    [SVProgressHUD show];
+    
+    NSURLSessionTask * task = [manager POST:[NSString stringWithFormat:@"%@%@",url] parameters:paramters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        //        [SVProgressHUD dismiss];
+        NSDictionary * dic = [self dictionaryWithData:responseObject];
+        
+        NSString * statusStr =[dic safeObjectForKey:@"message"];
+        int  code =[[dic safeObjectForKey:@"code"]intValue];
+        DLog(@"%@--%@--%@--%@",dic ,[dic objectForKey:@"code"],[dic objectForKey:@"message"],url);
+        
+        
+        if (code  ==601) {//登录失效
+            [SVProgressHUD dismiss];
+            
+        }else{
+            if (code==602) {//登录失效
+                
+            }else{
+                
+                if (statusStr&&[statusStr isEqualToString:@"success"]) {
+                    success(dic);
+                }else{
+                    [SVProgressHUD dismiss];
+                    NSError * error = [[NSError alloc]initWithDomain:NSURLErrorDomain code:[[dic objectForKey:@"code"]intValue] userInfo:dic];
+                    
+                    failure(error);
+                }
+            }
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        //        [SVProgressHUD dismiss];
+        
+        DLog(@"error--%ld-%@",(long)error.code,[error.userInfo safeObjectForKey:@"NSLocalizedDescription"]);
+        
+        if ([error code] ==-1009) {
+            [[UserModel shareInstance] showInfoWithStatus:@"连接失败，请检查网络"];
+            
+        }
+        
+        if ([error code] ==-1001) {
+            [[UserModel shareInstance] showInfoWithStatus:@"连接失败，请检查网络"];
+        }
+        if ([error code]==-1011) {
+            [[UserModel shareInstance]showInfoWithStatus:@"页面丢失--404"];
+        }
+        failure(error);
+    }];
+    return task;
 }
 -(NSURLSessionTask*)get:(NSString*)url
               paramters:(NSDictionary*)paramters

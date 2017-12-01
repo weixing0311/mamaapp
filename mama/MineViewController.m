@@ -24,6 +24,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self.headImageView sd_setImageWithURL:[NSURL URLWithString:[UserModel shareInstance].headImgUrl]placeholderImage:getImage(@"默认头像")];
+//    self.nickName.text = [UserModel shareInstance].nickName;
+    self.nickName.text = @"小叶子";
 }
 - (IBAction)changeUser:(id)sender {
 }

@@ -12,16 +12,20 @@
 #import "MainThirdCell.h"
 #import "MainTabHeadView.h"
 #import "MainFootView.h"
+#import "MineViewController.h"
 #import "SearchViewController.h"
 #import "MineViewController.h"
 #import "MainFootView.h"
 #import "MainTabHeadView.h"
+#import "ArticleDetailViewController.h"
 @interface MainViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UIButton *leftBtn;
 @property (weak, nonatomic) IBOutlet UIButton *rightBtn;
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 @property (nonatomic,strong) NSMutableArray * dataArray;
-@property (nonatomic,strong) NSMutableArray * infoDict;
+@property (nonatomic,strong) NSMutableDictionary * infoDict;
+@property (nonatomic,strong) NSMutableArray * recArray;
+@property (nonatomic,strong) NSMutableDictionary * weatherDict;
 @end
 
 @implementation MainViewController
@@ -38,29 +42,20 @@
     self.tabBarController.tabBar.hidden = NO;
     
 }
--(NSMutableArray *)dataArray
-{
-    if (!_dataArray) {
-        _dataArray  = [NSMutableArray array];
-    }
-    return _dataArray;
-}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableview.delegate = self;
     self.tableview.dataSource = self;
     self.tableview.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self dataArray];
-    [_dataArray addObject:@"背景"];
-    [_dataArray addObject:@"背景"];
-    [_dataArray addObject:@"背景"];
-    [_dataArray addObject:@"背景"];
-    [_dataArray addObject:@"背景"];
-    [_dataArray addObject:@"背景"];
-    [_dataArray addObject:@"背景"];
     
-    
+    _recArray = [NSMutableArray array];
+    _infoDict = [NSMutableDictionary dictionary];
+    _dataArray = [NSMutableArray array];
+    _weatherDict = [NSMutableDictionary dictionary];
     [self getMamaInfo];
+    [self getWeather];
+    [self getListInfo];
+    [self getMamaTuijian];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -70,38 +65,96 @@
     NSMutableDictionary * params =[NSMutableDictionary dictionary];
     [params safeSetObject:@"819113888506318848" forKey:@"uid"];
     [[BaseSerVice sharedManager]post:@"user/mama_info" paramters:params success:^(NSDictionary *dic) {
-        NSDictionary * dataDict =[dic safeObjectForKey:@"data"];
-        [[UserModel shareInstance]savemamaInfoWithdict:dataDict];
+        _infoDict =[dic safeObjectForKey:@"data"];
+        [[UserModel shareInstance]savemamaInfoWithdict:_infoDict];
+        NSIndexPath * indexpath = [NSIndexPath indexPathForRow:0 inSection:0];
+        [self.tableview reloadRowsAtIndexPaths:@[indexpath] withRowAnimation:UITableViewRowAnimationLeft];
     } failure:^(NSError *error) {
         
     }];
 }
 -(void)getWeather
 {
-    NSString * cityStr = [UserModel shareInstance].city;
-    NSString * appKey = @"819113888506318848";
+    NSString * loc = @"39.974235,116.495968";
     
     
-    NSString * urlStr = [NSString stringWithFormat:@"https://free-api.heweather.com/v5/weather?city=%@&key=%@",cityStr,appKey];
-    [[BaseSerVice sharedManager]post:urlStr paramters:nil success:^(NSDictionary *dic) {
-        
+    NSMutableDictionary * params =[NSMutableDictionary dictionary];
+    [params safeSetObject:@"819113888506318848" forKey:@"uid"];
+    [params safeSetObject:loc forKey:@"loc"];
+    
+    [[BaseSerVice sharedManager]post:@"user/weather" paramters:params success:^(NSDictionary *dic) {
+        DLog(@"天气--%@",dic);
+        NSDictionary * dataDic = [dic safeObjectForKey:@"data"];
+        _weatherDict = [dataDic safeObjectForKey:@"heWeather5"][0];
+        NSIndexPath * indexpath = [NSIndexPath indexPathForRow:0 inSection:0];
+        [self.tableview reloadRowsAtIndexPaths:@[indexpath] withRowAnimation:UITableViewRowAnimationLeft];
+
+//        DLog(@"天气Arr--%@",nowDic);
+//        weatherCstr = [[nowDic safeObjectForKey:@"cond"]objectForKey:@"txt"];
+//        weatherEstr = [[[nowDic safeObjectForKey:@"aqi"]safeObjectForKey:@"city"]safeObjectForKey:@"qlty"];
+//        wenDuStr =[nowDic safeObjectForKey:@"tmp"];
     } failure:^(NSError *error) {
         
     }];
 }
-- (IBAction)didClickLeft:(id)sender {
+-(void)yanZhengToken
+{
+    
+    NSMutableDictionary * params =[NSMutableDictionary dictionary];
+    [params safeSetObject:[UserModel shareInstance].uid forKey:@"uid"];
+    [params safeSetObject:[UserModel shareInstance].token forKey:@"token"];
+    [[BaseSerVice sharedManager]post:@"user/validate_login" paramters:params success:^(NSDictionary *dic) {
+        NSMutableDictionary * dataDict=[dic safeObjectForKey:@"data"];
+        NSArray * arr = [dataDict safeObjectForKey:@"blocks"];
+        DLog(@"arr--%lu",(unsigned long)arr.count);
+        DLog(@"ListInfo--%@",dic);
+    } failure:^(NSError *error) {
+        
+    }];
+
+}
+-(void)getListInfo
+{
+    NSMutableDictionary * params =[NSMutableDictionary dictionary];
+    [params safeSetObject:@"819113888506318848" forKey:@"uid"];
+    [params safeSetObject:@"1" forKey:@"cid"];
+    [[BaseSerVice sharedManager]post:@"channel/get_channel_data" paramters:params success:^(NSDictionary *dic) {
+        NSMutableDictionary * dataDict=[dic safeObjectForKey:@"data"];
+        NSArray * arr = [dataDict safeObjectForKey:@"blocks"];
+        DLog(@"arr--%lu",(unsigned long)arr.count);
+        _dataArray = [[arr objectAtIndex:0]objectForKey:@"items"];
+        [self.tableview reloadData];
+        DLog(@"ListInfo--%@",dic);
+    } failure:^(NSError *error) {
+        
+    }];
+}
+-(void)getMamaTuijian
+{
+    NSMutableDictionary * params =[NSMutableDictionary dictionary];
+    [params safeSetObject:@"819113888506318848" forKey:@"uid"];
+    [[BaseSerVice sharedManager]post:@"user/mama_rec" paramters:params success:^(NSDictionary *dic) {
+        _recArray =[dic safeObjectForKey:@"data"];
+        DLog(@"推荐---%@",dic);
+        [self.tableview reloadData];
+    } failure:^(NSError *error) {
+        
+    }];
+
+}
+- (IBAction)didClickLeft:(id)sender
+{
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     MineViewController * mine = [[MineViewController alloc]init];
     [self.navigationController pushViewController: mine animated:YES];
 
 }
 - (IBAction)didClickRight:(id)sender {
+    
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     SearchViewController * search = [[SearchViewController alloc]init];
     [self.navigationController pushViewController:search animated:YES];
 }
-
-
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -153,7 +206,7 @@
         case 1:
             tabHeader.titlelabel.text = @"今日知识";
             tabHeader.secondLabel.text = @"每天告诉你宝宝的成长过程和注意事项";
-            tabHeader.allPageLabel.text = [NSString stringWithFormat:@"/%lu",(unsigned long)self.dataArray.count];
+            tabHeader.allPageLabel.text = [NSString stringWithFormat:@"/%lu",(unsigned long)self.recArray.count];
             tabHeader.pageLabel.text = @"1";
 
             break;
@@ -189,10 +242,12 @@
         }
         
         NSDictionary * dic = [UserModel shareInstance].babies[0];
-        [cell.headImageView sd_setImageWithURL:[NSURL URLWithString:[dic safeObjectForKey:@"thumb"]]];
+        [cell.headImageView sd_setImageWithURL:[NSURL URLWithString:[dic safeObjectForKey:@"thumb"]]placeholderImage:getImage(@"默认头像")];
         cell.nameLabel.text = [dic safeObjectForKey:@"nickname"];
         cell.dateLabel.text = [NSString stringWithFormat:@"%@ %@",[self getDate],[self getweek]];
-        
+        cell.temperatureLabel.text = [NSString stringWithFormat:@"%@°",[[_weatherDict safeObjectForKey:@"now"]objectForKey:@"tmp"]];
+        cell.weather2label.text =[NSString stringWithFormat:@"%@",[[[_weatherDict safeObjectForKey:@"now"]objectForKey:@"cond"]objectForKey:@"txt"]];
+        cell.airLabel.text = [NSString stringWithFormat:@"%@ %@",[[[_weatherDict safeObjectForKey:@"aqi"]objectForKey:@"city"]objectForKey:@"qlty"],[[[_weatherDict safeObjectForKey:@"aqi"]objectForKey:@"city"]objectForKey:@"aqi"]];
         
         return cell;
         
@@ -205,7 +260,7 @@
             cell = [[UserModel shareInstance]getXibCellWithTitle:identifier];
         }
 
-        [cell buildImageWithArray:self.dataArray];
+        [cell buildImageWithArray:self.recArray];
         return cell;
 
     }
@@ -216,6 +271,7 @@
         if (!cell) {
             cell = [[UserModel shareInstance]getXibCellWithTitle:identifier];
         }
+        NSDictionary * dic =[_dataArray objectAtIndex:indexPath.row];
         if (indexPath.row ==0) {
             cell.hiddView.hidden = YES;
         }
@@ -223,6 +279,20 @@
             cell.hiddView.hidden = NO;
         }
         [cell.headImageView setShardow];
+
+        cell.titleLabel.text =[dic safeObjectForKey:@"title"];
+        [cell.headImageView sd_setImageWithURL:[NSURL URLWithString:[dic safeObjectForKey:@"thumb1"]] placeholderImage:getImage(@"背景")];
+        cell.subTitleLabel.text = @"title";
+        cell.contentLabel.text = [dic safeObjectForKey:@"source"];
+        int type = [[dic safeObjectForKey:@"type"]intValue];
+        if (type ==1) {
+            cell.playImageView.hidden = YES;
+        }
+        else
+        {
+            cell.playImageView.hidden = NO;
+
+        }
 
         return cell;
  
@@ -233,6 +303,15 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (indexPath.section ==2) {
+        NSDictionary * dic =[_dataArray objectAtIndex:indexPath.row];
+        ArticleDetailViewController * article = [[ArticleDetailViewController alloc]init];
+        [self.navigationController setNavigationBarHidden:NO animated:YES];
+        article.uid = [dic safeObjectForKey:@"id"];
+        [self.navigationController pushViewController:article animated:YES];
+        
+    }
 }
 
 
